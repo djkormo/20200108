@@ -38,7 +38,7 @@ You should get at least one pod running.
 
 1. Type ``kubectl describe pods my-nginx`` and press **Enter**.
 Look into pod details.
-2. Export pod definition by typing: ``kubectl get pod my-nginx --export -o yaml > my_pod_definition.yaml``
+2. Export pod definition by typing: ``kubectl get pod my-nginx -o yaml > my_pod_definition.yaml``
 3. Check if there is a definition by typing ``ls`` and pressing **Enter**.
 4. You can examine the definition by typing ``cat my_pod_definition.yaml``.
 5. Edit existing pod by typing ``kubectl edit pod my-nginx``.
