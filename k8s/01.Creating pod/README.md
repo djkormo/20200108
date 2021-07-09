@@ -13,14 +13,14 @@
 
 
 1. Open a terminal of your choice.
-2. Type ``kubectl version`` and press **Enter**.
+2. Type ```kubectl version``` and press **Enter**.
 You should get an output similiar to:
 
-``Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.3", GitCommit:"5e53fd6bc17c0dec8434817e69b04a25d8ae0ff0", GitTreeState:"clean", BuildDate:"2019-06-06T01:44:30Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"darwin/amd64"}
+```Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.3", GitCommit:"5e53fd6bc17c0dec8434817e69b04a25d8ae0ff0", GitTreeState:"clean", BuildDate:"2019-06-06T01:44:30Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"darwin/amd64"}
 Server Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.6", GitCommit:"96fac5cd13a5dc064f7d9f4f23030a6aeface6cc", GitTreeState:"clean", BuildDate:"2019-08-19T11:05:16Z", GoVersion:"go1.12.9", Compiler:"gc", Platform:"linux/amd64"}
-``
+```
 
-3. To check if there are any nodes available, eype ``kubectl get nodes`` and press **Enter**.
+3. To check if there are any nodes available, eype ```kubectl get nodes``` and press **Enter**.
 You should get at least one node.
 
 ## Task 2. Creating a pod.
@@ -28,29 +28,39 @@ You should get at least one node.
 In this task you will create your simple pod using CLI.
 
 1. Still in the terminal type
-``
-kubectl run my-nginx --restart=Never --image=nginx:1.7.9`` and press **Enter**.
-2. Check if there is any pod created by typing: ``kubectl get pods``.
+
+```kubectl run my-nginx --restart=Never --image=nginx:1.7.9``` and press **Enter**.
+
+2. Check if there is any pod created by typing: ```kubectl get pods```.
+
 You should get at least one pod running.
 ![img](./img/get_pods.png)
 
 ## Task 3. Editing and getting pod details.
 
-1. Type ``kubectl describe pods my-nginx`` and press **Enter**.
+1. Type ```kubectl describe pods my-nginx``` and press **Enter**.
 Look into pod details.
-2. Export pod definition by typing: ``kubectl get pod my-nginx -o yaml > my_pod_definition.yaml``
-3. Check if there is a definition by typing ``ls`` and pressing **Enter**.
-4. You can examine the definition by typing ``cat my_pod_definition.yaml``.
-5. Edit existing pod by typing ``kubectl edit pod my-nginx``.
+2. Export pod definition by typing: ```kubectl get pod my-nginx -o yaml > my_pod_definition.yaml```
+
+3. Check if there is a definition by typing ```ls``` and pressing **Enter**.
+
+4. You can examine the definition by typing ```cat my_pod_definition.yaml```.
+
+5. Edit existing pod by typing ```kubectl edit pod my-nginx```.
+
 Pod definition should open in an editor. Edit the file by replacing line:
-``- image: nginx:1.7.9`` with ``- image: nginx:1.9.1`` and saving the file.
-6. Check if pod is updated by typing ``kubectl describe pod my-nginx``. The pod should use new docker image now.
+```- image: nginx:1.7.9``` with ```- image: nginx:1.9.1``` and saving the file.
+
+6. Check if pod is updated by typing ```kubectl describe pod my-nginx```. The pod should use new docker image now.
+
 7. Make a proxy connection to your pod by typing:
-``
-kubectl port-forward my-nginx 8080:80
-``
-Now you should be able to connect to the pod using a web browser or curl. ``http://localhost:8080``
-8. Delete pod by typing ``kubectl delete pod my-nginx --grace-period=1``.
+
+``` kubectl port-forward my-nginx 8080:80
+```
+Now you should be able to connect to the pod using a web browser or curl. ```http://localhost:8080```
+
+
+8. Delete pod by typing ```kubectl delete pod my-nginx --grace-period=1```.
 
 ## Task 4. Creating and editing a pod using manifest file.
 
@@ -103,4 +113,4 @@ kubectl delete pod my-pod --grace-period=1
 
 <br><br>
 
-<center><p>&copy; 2019 Chmurowisko Sp. z o.o.<p></center>
+<center><p>&copy; 2021 Chmurowisko Sp. z o.o.<p></center>
