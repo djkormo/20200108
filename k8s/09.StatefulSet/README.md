@@ -18,10 +18,14 @@ StatefulSets are valuable for applications that require one or more of the follo
 ## Task 1: Creating a StatefulSet
 
 1. Open two terminal windows.
+
 2. In the first one, run command ``kubectl get pods -w -l app=nginx`` to watch Pods creation.
+
 3. In the second terminal window, create *statefulset.yaml* file by running ``nano statefulset.yaml``.
+
 4. Download [StatefulSet manifest file](./files/statefulset.yaml) and paste its content into the editor.
 5. Save changes by pressing *CTRL+O* and *CTRL-X*.
+
 6. Still in the second terminal run the following commmand ``kubectl apply -f statefulset.yaml`` to create the StatefulSet.
 7. Switch to the first terminal window and see how the Pods are created.
 ![img](./img/ss1.png)
@@ -88,32 +92,44 @@ for i in 0 1; do kubectl exec -it web-$i -- curl localhost; done
 ``
 ![img](./img/ss7.png)
 
-4. In the first terminal, watch the StatefulSet’s Pods: ``kubectl get pod -w -l app=nginx`
-2. In the second terminal, delete all of the StatefulSet’s Pods: ``kubectl delete pod -l app=nginx`
+4. In the first terminal, watch the StatefulSet’s Pods: ```kubectl get pod -w -l app=nginx```
+
+2. In the second terminal, delete all of the StatefulSet’s Pods: ```kubectl delete pod -l app=nginx```
+
 3. Examine the output of the kubectl get command in the first terminal, and wait for all of the Pods to transition to Running and Ready.
+
 ![img](./img/ss8.png)
+
 4. Verify the web servers continue to serve their hostnames: 
-``
-for i in 0 1; do kubectl exec -it web-$i -- curl localhost; done
-``
+
+```for i in 0 1; do kubectl exec -it web-$i -- curl localhost; done```
+
 ![img](./img/ss9.png)
 
 ## Task 4: Scaling the StatefulSet
 
-1. In the first terminal, watch the StatefulSet’s Pods: ``kubectl get pod -w -l app=nginx`
-2. In the second terminal window , use kubectl scale to scale the number of replicas to 4: ``kubectl scale sts web --replicas=4``
+1. In the first terminal, watch the StatefulSet’s Pods: ```kubectl get pod -w -l app=nginx```
+
+2. In the second terminal window , use kubectl scale to scale the number of replicas to 4: ```kubectl scale sts web --replicas=4```
+
 3. Examine the output of the kubectl get command in the first terminal, and wait for the two additional Pods to transition to Running and Ready.
+
 ![img](./img/ss10.png)
+
 The StatefulSet controller scaled the number of replicas. As with StatefulSet creation, the StatefulSet controller created each Pod sequentially with respect to its ordinal index, and it waited for each Pod’s predecessor to be Running and Ready before launching the subsequent Pod.
-4. In the first terminal, still watch the StatefulSet’s Pods: ``kubectl get pod -w -l app=nginx`
-5. In the second terminal window , use kubectl scale to scale the number of replicas to 2: ``kubectl scale sts web --replicas=2``
+
+4. In the first terminal, still watch the StatefulSet’s Pods: ```kubectl get pod -w -l app=nginx```
+
+5. In the second terminal window , use kubectl scale to scale the number of replicas to 2: ```kubectl scale sts web --replicas=2```
+
 ![img](./img/ss11.png)
 
 6. Please, delete both StatefulSet and Service.
-``kubectl delete -f statefulset.yaml``
+
+```kubectl delete -f statefulset.yaml```
 
 ## END LAB
 
 <br><br>
 
-<center><p>&copy; 2019 Chmurowisko Sp. z o.o.<p></center>
+<center><p>&copy; 2021 Chmurowisko Sp. z o.o.<p></center>
