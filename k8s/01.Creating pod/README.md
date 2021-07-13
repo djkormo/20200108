@@ -13,7 +13,9 @@
 
 
 1. Open a terminal of your choice.
+
 2. Type ```kubectl version``` and press **Enter**.
+
 You should get an output similiar to:
 
 ```Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.3", GitCommit:"5e53fd6bc17c0dec8434817e69b04a25d8ae0ff0", GitTreeState:"clean", BuildDate:"2019-06-06T01:44:30Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"darwin/amd64"}
@@ -56,8 +58,8 @@ Pod definition should open in an editor. Edit the file by replacing line:
 
 7. Make a proxy connection to your pod by typing:
 
-``` kubectl port-forward my-nginx 8080:80
-```
+``` kubectl port-forward my-nginx 8080:80```
+
 Now you should be able to connect to the pod using a web browser or curl. ```http://localhost:8080```
 
 
