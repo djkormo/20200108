@@ -47,6 +47,7 @@ scale the cluster. Of course replace *myResourceGroup*, *myAKSCluster* and *<you
 and describe the DaemonSet: ```kubectl describe daemonset daemonset```
 
 As you can see the Pods was successfully deployed to all two nodes in our cluster. 
+
 ![img](./img/daemonset2.png)
 
 ## Task 3: Limiting DaemonSets to Specific Nodes
