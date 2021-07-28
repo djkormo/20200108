@@ -35,9 +35,9 @@ BinPath           C:\Users\User\.krew\bin
 DetectedPlatform  windows/amd64
 </pre>
 
-```console kubectl krew search ```
+```kubectl krew search```
 
-```console kubectl krew install get-all```
+```kubectl krew install get-all```
 
 <pre>
 Updated the local copy of plugin index.
@@ -74,7 +74,7 @@ Installed plugin: change-ns
    Run them at your own risk
 </pre>
 
-```console kubectl krew install split-yaml ```
+```kubectl krew install split-yaml ```
 
 <pre>
 Updated the local copy of plugin index.
@@ -95,7 +95,7 @@ Installed plugin: split-yaml
 
 Example of usage for argocd manifest
 
-```console
+```
 curl https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml -o files/argocd-install.yaml
 cd files
 kubectl split-yaml -f argocd-install.yaml --output-path manifests --template  "{{.kind}}/{{.name}}.yaml"
@@ -145,7 +145,7 @@ manifests\NetworkPolicy\argocd-server-network-policy.yaml
 </pre>
 
 
-```console kubectl krew search neat ```
+```kubectl krew search neat ```
 <pre>
 NAME          DESCRIPTION                                         INSTALLED
 neat          Remove clutter from Kubernetes manifests to mak...  unavailable on windows
@@ -154,7 +154,7 @@ neat          Remove clutter from Kubernetes manifests to mak...  unavailable on
 Now we have plugin unavailable on windows
 
 
-```console kubectl krew install neat```
+```kubectl krew install neat```
 
 <pre>
 
@@ -182,14 +182,14 @@ https://github.com/itaysk/kubectl-neat/issues/6
 
 Test
 
-```console kubectl get pod -n kube-system -l component=etcd ```
+```kubectl get pod -n kube-system -l component=etcd ```
 
 <pre>
 NAME                  READY   STATUS    RESTARTS   AGE
 etcd-docker-desktop   1/1     Running   8          44d
 </pre>
 
-```console kubectl get pod -n kube-system -l component=etcd -o yaml```
+```kubectl get pod -n kube-system -l component=etcd -o yaml```
 
 ```yaml
 apiVersion: v1
@@ -344,9 +344,10 @@ metadata:
   selfLink: ""
 ```
 
-```console
+```
 kubectl get pod -n kube-system -l component=etcd -o yaml | kubectl neat
 ```
+
 ```yaml
 piVersion: v1
 items:
@@ -449,16 +450,16 @@ Installed plugin: status
 
 </pre>
 
-```console kubectl krew install get-all```
+```kubectl krew install get-all```
 
-```console kubectl get all -n default```
+```kubectl get all -n default```
 
 <pre>
 NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   57d
 </pre>
 
-```console kubectl get-all -n default```
+```kubectl get-all -n default```
 
 <pre>
 NAME                                       NAMESPACE  AGE
@@ -488,6 +489,7 @@ Lens an Electron-based desktop application that runs on Windows, Mac and Linux. 
 
 https://k8slens.dev/
 
+![img](./img/lens.png)
 
 
 4. K9s
