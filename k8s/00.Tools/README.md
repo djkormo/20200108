@@ -89,7 +89,62 @@ Installed plugin: split-yaml
 ←[31;1mWARNING: ←[0mYou installed plugin "split-yaml" from the krew-index plugin repository.
    These plugins are not audited for security by the Krew maintainers.
    Run them at your own risk.
+
+
 </pre>
+
+Example of usage for argocd manifest
+
+```console
+curl https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml -o files/argocd-install.yaml
+cd files
+kubectl split-yaml -f argocd-install.yaml --output-path manifests --template  "{{.kind}}/{{.name}}.yaml"
+```
+
+<pre>
+manifests\CustomResourceDefinition\applications.argoproj.io.yaml
+manifests\CustomResourceDefinition\appprojects.argoproj.io.yaml
+manifests\ServiceAccount\argocd-application-controller.yaml
+manifests\ServiceAccount\argocd-dex-server.yaml
+manifests\ServiceAccount\argocd-redis.yaml
+manifests\ServiceAccount\argocd-server.yaml
+manifests\Role\argocd-application-controller.yaml
+manifests\Role\argocd-dex-server.yaml
+manifests\Role\argocd-server.yaml
+manifests\ClusterRole\argocd-application-controller.yaml
+manifests\ClusterRole\argocd-server.yaml
+manifests\RoleBinding\argocd-application-controller.yaml
+manifests\RoleBinding\argocd-dex-server.yaml
+manifests\RoleBinding\argocd-redis.yaml
+manifests\RoleBinding\argocd-server.yaml
+manifests\ClusterRoleBinding\argocd-application-controller.yaml
+manifests\ClusterRoleBinding\argocd-server.yaml
+manifests\ConfigMap\argocd-cm.yaml
+manifests\ConfigMap\argocd-cmd-params-cm.yaml
+manifests\ConfigMap\argocd-gpg-keys-cm.yaml
+manifests\ConfigMap\argocd-rbac-cm.yaml
+manifests\ConfigMap\argocd-ssh-known-hosts-cm.yaml
+manifests\ConfigMap\argocd-tls-certs-cm.yaml
+manifests\Secret\argocd-secret.yaml
+manifests\Service\argocd-dex-server.yaml
+manifests\Service\argocd-metrics.yaml
+manifests\Service\argocd-redis.yaml
+manifests\Service\argocd-repo-server.yaml
+manifests\Service\argocd-server.yaml
+manifests\Service\argocd-server-metrics.yaml
+manifests\Deployment\argocd-dex-server.yaml
+manifests\Deployment\argocd-redis.yaml
+manifests\Deployment\argocd-repo-server.yaml
+manifests\Deployment\argocd-server.yaml
+manifests\StatefulSet\argocd-application-controller.yaml
+manifests\NetworkPolicy\argocd-application-controller-network-policy.yaml
+manifests\NetworkPolicy\argocd-dex-server-network-policy.yaml
+manifests\NetworkPolicy\argocd-redis-network-policy.yaml
+manifests\NetworkPolicy\argocd-repo-server-network-policy.yaml
+manifests\NetworkPolicy\argocd-server-network-policy.yaml
+</pre>
+
+
 ```console kubectl krew search neat ```
 <pre>
 NAME          DESCRIPTION                                         INSTALLED
@@ -394,11 +449,34 @@ Installed plugin: status
 
 </pre>
 
+```console kubectl krew install get-all```
+
+```console kubectl get all -n default```
+
+<pre>
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   57d
+</pre>
+
+```console kubectl get-all -n default```
+
+<pre>
+NAME                                       NAMESPACE  AGE
+endpoints/kubernetes                       default    57d
+secret/default-token-7k6nc                 default    57d
+serviceaccount/default                     default    57d  
+service/kubernetes                         default    57d
+endpointslice.discovery.k8s.io/kubernetes  default    57d
+</pre>
+
+
 2. Octant
 
 Octant is a browser-based UI aimed at application developers giving them visibility into how their application is running. I also think this tool can really benefit anyone using K8s, especially if you forget the various options to kubectl to inspect your K8s Cluster and/or workloads. Octant is also a VMware Open Source project and it is supported on Windows, Mac and Linux (including ARM) and runs locally on a system that has access to a K8S Cluster. After installing Octant, just type octant and it will start listening on localhost:7777 and you just launch your web browser to access the UI.
 
 https://github.com/vmware-tanzu/octant/releases
+
+
 
 ![img](./img/octant.png)
 
