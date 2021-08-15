@@ -128,4 +128,4 @@ The Pod is still running, so you can exec a few commands inside it
 
 <br><br>
 
-<center><p>&copy; 2019 Chmurowisko Sp. z o.o.<p></center>
+<center><p>&copy; 2021 Chmurowisko Sp. z o.o.<p></center>
