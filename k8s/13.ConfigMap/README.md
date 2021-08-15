@@ -15,7 +15,12 @@ ConfigMaps are used to pro‐ vide configuration information for workloads. This
 
 1. Run following command to create a simple ConfigMap from literal:
 
-```kubectl create configmap my-config-map --from-literal=param1=value1 --from-literal=param2=value2```
+```kubectl create configmap my-config-map --from-literal=param1=value1 --from-literal=param2=value2 --dry-run=client -o yaml > configmap.yaml```
+
+```cat configmap.yaml```
+
+```kubectl apply -f configmap.yaml```
+
 
 2. Get the config map using: ```kubectl get configmap my-config-map -o yaml```
 
@@ -44,7 +49,9 @@ EOT
 ```
 
 3. Still in the *config* directory run: 
-```kubectl create configmap my-config-map-2 --from-file=.```
+```kubectl create configmap my-config-map-2 --from-file=. --dry-run=client -o yaml > configmap2.yaml```
+
+```kubectl apply -f configmap2.yaml```
 
 and check the ConfigMap:```kubectl get configmap my-config-map-2 -o yaml```
 
@@ -52,7 +59,10 @@ and check the ConfigMap:```kubectl get configmap my-config-map-2 -o yaml```
 
 You can also create a ConfigMap from one file.
 
-4. Run ```kubectl create configmap my-config-map-3 --from-file=params2.txt```
+4. Run ```kubectl create configmap my-config-map-3 --from-file=params2.txt --dry-run=client -o yaml > configmap3.yaml```
+
+```kubectl apply -f configmap3.yaml```
+
 and check the ConfigMap ```kubectl get configmap my-config-map-3 -o yaml```
 
 ![img](./img/cf3.png)
@@ -77,7 +87,7 @@ You will create a Pod with two environment variables.
 
 3. Save changes by pressing *CTRL+O* and *CTRL-X*.
 
-4. Create a Pod by running: ```kubectl apply -f pod.yaml```
+4. Create a Pod by running: ```cd```
 
 The Pod echoed its env variables.
 
