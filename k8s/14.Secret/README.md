@@ -29,7 +29,22 @@ echo -n 'p@$$woRd' > ./password.txt
 
 3. Still in the *secret* directory run: 
 
-```kubectl create secret generic user-pass --from-file=./username.txt --from-file=./password.txt```
+```kubectl create secret generic user-pass --from-file=./username.txt --from-file=./password.txt --dry-run=client -o yaml > user-pass-secret.yaml```
+
+``cat user-pass-secret.yaml```
+
+```yaml
+apiVersion: v1
+data:
+  password.txt: cEAkJHdvUmQ=
+  username.txt: YWRtaW4=
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: user-pass
+```
+
+```kubectl apply -f user-pass-secret.yaml```
 
 and check the Secret: 
 
