@@ -99,4 +99,4 @@ Of course replace *myResourceGroup*, *myAKSCluster* and *<your node pool name>* 
 
 <br><br>
 
-<center><p>&copy; 2019 Chmurowisko Sp. z o.o.<p></center>
+<center><p>&copy; 2021 Chmurowisko Sp. z o.o.<p></center>

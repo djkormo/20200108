@@ -31,7 +31,7 @@ In this task you will create your simple pod using CLI.
 
 1. Still in the terminal type
 
-```kubectl run my-nginx --image=nginx:1.7.9``` and press **Enter**.
+```kubectl run my-nginx --image=nginx:1.12.0``` and press **Enter**.
 
 2. Check if there is any pod created by typing: ```kubectl get pods```.
 
@@ -52,7 +52,7 @@ Look into pod details.
 5. Edit existing pod by typing ```kubectl edit pod my-nginx```.
 
 Pod definition should open in an editor. Edit the file by replacing line:
-```- image: nginx:1.7.9``` with ```- image: nginx:1.9.1``` and saving the file.
+```- image: nginx:1.20.1``` with ```- image: nginx:1.20.1``` and saving the file.
 
 6. Check if pod is updated by typing ```kubectl describe pod my-nginx```. The pod should use new docker image now.
 

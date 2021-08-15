@@ -58,7 +58,7 @@ Now you should have 5 pods running inside ReplicaSet.
 
 ## Task 4: Detach replica set from pods
 
-1. You can delete replica set without deleting the pods. Execute: ```kubectl delete rs frontend --cascade=false```
+1. You can delete replica set without deleting the pods. Execute: ```kubectl delete rs frontend --cascade=orphan```
 
 2. Run: ```kubectl get pods -l app=frontend``` and see that there are still 5 pods created by replica set.
 
