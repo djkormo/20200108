@@ -56,7 +56,7 @@ You can also use *curl* and check the response headers: ```curl -I -X GET http:/
 
 ![img](./img/version1-headers.png)
 
-As you can see, you're using nginx 1.7.9
+As you can see, you're using nginx 1.20.0
 
 Exit the proxy by pressing **CTRL+C**.
 
@@ -65,7 +65,7 @@ Exit the proxy by pressing **CTRL+C**.
 1. Still in the terminal run the following command:
 
 ```
-kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
+kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.20.1
 ```
 
 2. Check the satus of the Deployment: 
@@ -88,7 +88,7 @@ Check Pod names again. you have new Pods in your Deployment now.
 
 ```curl -I -X GET http://localhost:8080```
 
-You should have now *nginx* ver. 1.9.1 in the headers.
+You should have now *nginx* ver. 1.20.1 in the headers.
 
 ![img](./img/headers2.png)
 
